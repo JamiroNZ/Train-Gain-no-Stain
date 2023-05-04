@@ -1,9 +1,7 @@
 <?= $this->extend('index') ?>
 <?= $this->section('content') ?>
-<div class="background-image-container" style="position: relative;">
-    <img src="assets/img/catdog.jpg" alt="" style="position: absolute; top: 0; left: 0; z-index: -1; width: 100%; height: auto;">
-    <div class="container pt-2 mx-auto" style="background-color: #f5f5f5;">
-        <h1 class="font-serif text-xl text-center">Welcome to a pet care website</h1>
+    <div class="container pt-2 mx-auto" >
+        <h1 class="font-serif text-xl text-center">Welcome to our pet care website</h1>
 
         <p>Our services include:</p>
 
@@ -27,6 +25,15 @@
             </div>
         </div>
     </div>
-</div>
-</div>
+        <br>
+
+
+    <div class="flex">
+        <img class="w-full" src="assets/img/catdog.jpg" alt="" >
+    </div>
+
+        <br>
+    <div class="container pt-2 mx-auto">
+        <h1 class="font-serif text-xl text-center"><q>Our website offers pet care services that are tailored towards grooming, training, and feeding pets to make them look fabulous, be physically healthy, and well-fed during the duration of the session chosen by our clients.</q></h1>
+    </div>
 <?= $this->endSection() ?>

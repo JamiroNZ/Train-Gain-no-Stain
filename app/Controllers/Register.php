@@ -54,7 +54,7 @@ class Register extends ResourceController
         ];
 
         $this->userModel->insert($payload);
-        return redirect()->to('auth/login');
+        return redirect()->to('/login');
     }
 
     /**

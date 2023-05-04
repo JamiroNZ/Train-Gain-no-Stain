@@ -5,7 +5,9 @@
 </head>
 <body>
 	<?= $this->include('layouts/navbar')?>
+	<br>
 	<?= $this->renderSection('content')?>
+	<br>
 	<?= $this->include('layouts/footer')?>
 </body>
 </html>
