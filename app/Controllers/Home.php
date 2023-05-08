@@ -28,5 +28,9 @@ class Home extends BaseController
     {
         return view('/admin');
     }
+    public function groomTable()
+    {
+        return view('admin/GroomTable');
+    }
 
 }
