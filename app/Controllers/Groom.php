@@ -69,7 +69,7 @@ class Groom extends ResourceController
 
 
         $this->groomModel->insert($payload);
-        return redirect()->to('/groom');
+        return redirect()->to('/main');
     }
 
     /**

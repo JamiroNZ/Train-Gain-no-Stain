@@ -10,7 +10,7 @@
 <body>
     <div class="login-box">
         <h2>Login</h2>
-        <form action="/login" method="post">
+        <form action="/admin" method="post">
             <div class="user-box">
                 <input type="text" class="form-control" id="example-email" aria-describedby="emailHelp" required name="email">
                 <label for="example-email">Email</label>

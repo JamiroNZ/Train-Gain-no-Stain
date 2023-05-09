@@ -31,10 +31,13 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 
 $routes->get('/', 'Home::index');
+$routes->get('/main', 'Home::index');
 $routes->get('/groom', 'Home::groom');
 $routes->get('/train', 'Home::training');
 $routes->get('/feed', 'Home::feed');
 $routes->get('/admin', 'Home::admin');
+$routes->post('/admin', 'Home::admin');
+$routes->post('/login', 'Login::index');
 $routes->get('/groomtable', 'Home::groomTable');
 
 $routes->resource('groom');
