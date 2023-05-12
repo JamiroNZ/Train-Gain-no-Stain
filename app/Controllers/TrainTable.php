@@ -2,14 +2,13 @@
 
 namespace App\Controllers;
 
-use App\Models\GroomModel;
 use CodeIgniter\RESTful\ResourceController;
+use App\Models\TrainModel;
 
-class Groom extends ResourceController
-
+class TrainTable extends ResourceController
 {
     public function __construct() {
-        $this->groomModel = new GroomModel();
+        $this->trainModel = new TrainModel();
     }
     /**
      * Return an array of resource objects, themselves in array format
@@ -18,13 +17,7 @@ class Groom extends ResourceController
      */
     public function index()
     {
-        $groomimg = $this->groomModel->findAll();
-
-        $payload = [
-            "grooming" => $groomimg
-        ];
-
-        echo view('admin/GroomTable', $payload);
+        //
     }
 
     /**
@@ -44,7 +37,7 @@ class Groom extends ResourceController
      */
     public function new()
     {
-        echo view('content/grooming');
+        //
     }
 
     /**
@@ -54,18 +47,7 @@ class Groom extends ResourceController
      */
     public function create()
     {
-
-        $payload = [
-            "petName" => $this->request->getPost('petName'),
-            "petType" => $this->request->getPost('petType'),
-            "groomingType" => $this->request->getPost('groomingType'),
-            "appointmentDate" => $this->request->getPost('appointmentDate'),
-            "appointmentTime" => $this->request->getPost('appointmentTime'),
-        ];
-
-
-        $this->groomModel->insert($payload);
-        return redirect()->to('/main');
+        //
     }
 
     /**
