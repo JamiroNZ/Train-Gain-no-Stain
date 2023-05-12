@@ -10,13 +10,26 @@
 <body>
     <div class="login-box">
         <h2>Login</h2>
+
+        <?php if(session()->getFlashData('success')) { ?>
+            <div class="alert alert-success">
+                <?= session()->get('success') ?>
+            </div>
+        <?php } ?>
+
+        <?php if(session()->getFlashdata('errors')) { ?>
+            <div class="alert alert-danger">
+                <?= session()->getFlashdata('errors') ?>
+            </div>
+        <?php } ?>
+
         <form action="/admin" method="post">
             <div class="user-box">
-                <input type="text" class="form-control" id="example-email" aria-describedby="emailHelp" required name="email">
+                <input type="text" class="form-control" id="example-email" aria-describedby="emailHelp" required name="email" value="<?= old('email') ?>">
                 <label for="example-email">Email</label>
             </div>
             <div class="user-box">
-                <input type="password" class="form-control" id="example-password" aria-describedby="emailHelp" required name="password">
+                <input type="password" class="form-control" id="example-password" aria-describedby="emailHelp" required name="password" value="<?= old('password') ?>">
                 <label for="example-password">Password</label>
             </div>
             <div class="button-form">

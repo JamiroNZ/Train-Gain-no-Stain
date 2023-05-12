@@ -32,13 +32,6 @@
 <h1 class="mb-4">Hello <?= session('name') ?> </h1>
   
   <section class="panel important">
-    <h2>Write Some News</h2>
-    <ul>
-      <li>Information Panel</li>
-    </ul>
-  </section>
-  
-  <section class="panel important">
     <h2>Write a post</h2>
       <?= $this->renderSection('content')?>
   </section>

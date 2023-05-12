@@ -21,7 +21,7 @@ class Groom extends ResourceController
         $groom = $this->groomModel->findAll();
 
         $payload = [
-            "grooming" => $groom
+            "grooming" => $groomimg
         ];
 
         echo view('admin/GroomTable', $payload);
@@ -54,17 +54,13 @@ class Groom extends ResourceController
      */
     public function create()
     {
-        $datetime = $this->request->getPost('appointment_datetime');
-        $timestamp = strtotime($datetime);
-        $date = date('Y-m-d', $timestamp);
-        $time = date('H:i:s', $timestamp);
 
         $payload = [
             "petName" => $this->request->getPost('petName'),
             "petType" => $this->request->getPost('petType'),
             "groomingType" => $this->request->getPost('groomingType'),
-            "appointmentDate" => $date,
-            "appointmentTime" => $time,
+            "appointmentDate" => $this->request->getPost('appointmentDate'),
+            "appointmentTime" => $this->request->getPost('appointmentTime'),
         ];
 
 
