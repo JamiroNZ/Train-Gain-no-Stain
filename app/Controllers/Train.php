@@ -2,16 +2,14 @@
 
 namespace App\Controllers;
 
+use App\Models\TrainModel;
 use CodeIgniter\RESTful\ResourceController;
-use App\Models\UserModel; 
 
-class Login extends ResourceController
+class Train extends ResourceController
+
 {
-    protected $session;
-
     public function __construct() {
-        $this->userModel = new UserModel();
-        $this->session = \Config\Services::session();
+        $this->trainModel = new TrainModel();
     }
     /**
      * Return an array of resource objects, themselves in array format
@@ -20,7 +18,13 @@ class Login extends ResourceController
      */
     public function index()
     {
-        echo view('auth/login');
+        $training = $this->trainModel->findAll();
+
+        $payload = [
+            "training" => $training
+        ];
+
+        echo view('admin/TrainTable', $payload);
     }
 
     /**
@@ -40,7 +44,7 @@ class Login extends ResourceController
      */
     public function new()
     {
-        //
+        echo view('content/training');
     }
 
     /**
@@ -50,26 +54,18 @@ class Login extends ResourceController
      */
     public function create()
     {
-        $email = $this->request->getPost('email');
-        $password = $this->request->getPost('password');
 
-        $user = $this->userModel
-                ->where('email', $email)
-                ->first();
+        $payload = [
+            "petName" => $this->request->getPost('petName'),
+            "petType" => $this->request->getPost('petType'),
+            "trainingType" => $this->request->getPost('groomingType'),
+            "trainingDuration" => $this->request->getPost('trainingDuration'),
+            "appointmentDate" => $this->request->getPost('appointmentDate'),
+        ];
 
-        if(!$user) {
-            throw new \Exception("User not found!");
-        }
 
-        if(md5($password) != $user['password']) {
-            throw new \Exception("Credentials is invalid!");
-        }
-
-        $this->session->set('id', $user['id']);
-        $this->session->set('name', $user['name']);
-        $this->session->set('loggedIn', true);
-
-        return redirect()->to('admin/index');
+        $this->trainModel->insert($payload);
+        return redirect()->to('/main');
     }
 
     /**

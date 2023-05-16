@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<?= $this->include('layouts/head')?>
+	<?= $this->include('layouts/content/head')?>
 </head>
 <body>
-	<?= $this->include('layouts/navbar')?>
+	<?= $this->include('layouts/content/navbar')?>
 	<br>
-P
+	<main>
 		<?= $this->renderSection('content')?>
-	</div>
-	<br>
-	<?= $this->include('layouts/footer')?>
+	</main>
+	<?= $this->include('layouts/content/footer')?>
+	<?= $this->include('layouts/content/scripts')?>
 </body>
 </html>

@@ -35,15 +35,14 @@ $routes->get('/main', 'Home::index');
 $routes->get('/groom', 'Home::groom');
 $routes->get('/train', 'Home::training');
 $routes->get('/feed', 'Home::feed');
-$routes->post('/login', 'Login::index');
-$routes->get('/groomtable', 'Home::groomTable');
-$routes->post('/admin', 'Home::admin');
+
 $routes->group('', ['filter' => 'authMiddleware'], function($routes) {
-    $routes->get('/admin', 'Home::admin');
+    $routes->get('/admin/index', 'Home::admin');
     $routes->resource('groom');
 });
 
 
+$routes->resource('logout');
 $routes->resource('groom');
 $routes->resource('register');
 $routes->resource('login');

@@ -23,7 +23,7 @@
             </div>
         <?php } ?>
 
-        <form action="/admin" method="post">
+        <form action="/login" method="post">
             <div class="user-box">
                 <input type="text" class="form-control" id="example-email" aria-describedby="emailHelp" required name="email" value="<?= old('email') ?>">
                 <label for="example-email">Email</label>
