@@ -1,31 +1,36 @@
 <?= $this->extend('admin') ?>
 <?= $this->section('content') ?>
-<table>
-        <thead>
-            <tr>
-                <td>No.</td>
-                <td>Pet Name</td>
-                <td>Pet Type</td>
-                <td>Grooming Type</td>
-                <td>Appointment Date</td>
-                <td>Appointment Time</td>
-            </tr>
-        </thead>
-        <tbody>
-        <br />
-        <br />
-        <?php $no = 0; ?>
-        <?php foreach ($groom as $item): ?>
-            <tr>
-                <td><?= $no += 1; ?></td>
-                <td><?= $item['petName'] ?></td>
-                <td><?= $item['petType'] ?></td>
-                <td><?= $item['groomingType'] ?></td>
-                <td><?= $item['appointmentDate'] ?></td>
-                <td><?= $item['appointmentTime'] ?></td>
-            </tr>
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h5 class="mb-4">Appointment List</h5>
 
-        <?php endforeach ?>
-        </tbody>
-    </table>
+            <table class="table table-hover ">
+                <thead>
+                    <tr>
+                        <th scope="col ">No</th>
+                        <th scope="col ">Pet Name</th>
+                        <th scope="col ">Pet Type</th>
+                        <th scope="col ">Grooming Type</th>
+                        <th scope="col ">Appointment Date</th>
+                        <th scope="col ">Appointment Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $no = 0; ?>
+                    <?php foreach ($training as $item): ?>
+                    <tr>
+                        <td><?= $no += 1; ?></td>
+                        <td><?= $item['petName'] ?></td>
+                        <td><?= $item['petType'] ?></td>
+                        <td><?= $item['groomingType'] ?></td>
+                        <td><?= $item['appointmentDate'] ?></td>
+                        <td><?= $item['appointmentTime'] ?></td>
+                    </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
     <?= $this->endSection() ?>

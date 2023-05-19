@@ -38,12 +38,17 @@ $routes->get('/feed', 'Home::feed');
 
 $routes->group('', ['filter' => 'authMiddleware'], function($routes) {
     $routes->get('/admin/index', 'Home::admin');
-    $routes->resource('groom');
+    $routes->get('/admin/GroomTable', 'Home::groomTable');
+    $routes->get('/admin/TrainTable', 'Home::trainTable');
+    $routes->get('/groomtable', 'Groom::index');
+    $routes->get('/traintable', 'Train::index');
 });
-
+$routes->get('/groom','Groom::new');
+$routes->post('groom','Groom::create');
+$routes->get('/train','Train::new');
+$routes->post('train','Train::create');
 
 $routes->resource('logout');
-$routes->resource('groom');
 $routes->resource('register');
 $routes->resource('login');
 

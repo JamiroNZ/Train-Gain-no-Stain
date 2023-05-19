@@ -58,7 +58,7 @@ class Train extends ResourceController
         $payload = [
             "petName" => $this->request->getPost('petName'),
             "petType" => $this->request->getPost('petType'),
-            "trainingType" => $this->request->getPost('groomingType'),
+            "trainingType" => $this->request->getPost('trainingType'),
             "trainingDuration" => $this->request->getPost('trainingDuration'),
             "appointmentDate" => $this->request->getPost('appointmentDate'),
         ];

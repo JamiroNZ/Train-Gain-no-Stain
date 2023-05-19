@@ -33,4 +33,9 @@ class Home extends BaseController
         return view('admin/GroomTable');
     }
 
+    public function trainTable()
+    {
+        return view('admin/TrainTable');
+    }
+
 }
