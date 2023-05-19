@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="groomingType">Pet Type</label>
+                            <label for="groomingType">Grooming Type</label>
                             <select class="form-control" name="groomingType" id="groomingType">
                                 <option value="bath">Bath</option>
                                 <option value="spa">Spa</option>
