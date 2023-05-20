@@ -40,8 +40,7 @@ $routes->group('', ['filter' => 'authMiddleware'], function($routes) {
     $routes->get('/admin/index', 'Home::admin');
     $routes->get('/admin/GroomTable', 'Home::groomTable');
     $routes->get('/admin/TrainTable', 'Home::trainTable');
-    $routes->get('/groomtable', 'Groom::index');
-    $routes->get('/traintable', 'Train::index');
+
 });
 $routes->get('/groom','Groom::new');
 $routes->post('groom','Groom::create');

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\GroomModel;
+use App\Models\TrainModel;
 
 class Home extends BaseController
 {
@@ -30,12 +32,29 @@ class Home extends BaseController
     }
     public function groomTable()
     {
-        return view('admin/GroomTable');
+        $groomimg = $this->groomModel->findAll();
+
+        $payload = [
+            "grooming" => $groomimg
+        ];
+
+        echo view('admin/GroomTable', $payload);
     }
 
     public function trainTable()
     {
-        return view('admin/TrainTable');
+        $training = $this->trainModel->findAll();
+
+        $payload = [
+            "training" => $training
+        ];
+
+        echo view('admin/TrainTable', $payload);
+    }
+
+    public function __construct() {
+        $this->groomModel = new GroomModel();
+        $this->trainModel = new TrainModel();
     }
 
 }

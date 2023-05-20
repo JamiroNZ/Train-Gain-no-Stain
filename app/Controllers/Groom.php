@@ -18,13 +18,7 @@ class Groom extends ResourceController
      */
     public function index()
     {
-        $groomimg = $this->groomModel->findAll();
-
-        $payload = [
-            "grooming" => $groomimg
-        ];
-
-        echo view('admin/GroomTable', $payload);
+        //
     }
 
     /**

@@ -18,7 +18,7 @@
                 </thead>
                 <tbody>
                     <?php $no = 0; ?>
-                    <?php foreach ($training as $item): ?>
+                    <?php foreach ($grooming as $item): ?>
                     <tr>
                         <td><?= $no += 1; ?></td>
                         <td><?= $item['petName'] ?></td>
