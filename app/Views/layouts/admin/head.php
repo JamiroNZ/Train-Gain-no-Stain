@@ -3,3 +3,5 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="/assets/css/styles2.css">
+    <link rel="stylesheet" type="text/css" href=<?php echo base_url("assets/css/bootstrap.css");?> />
+    <link href=<?php echo base_url("assets/css/responsive.css");?> rel="stylesheet" />

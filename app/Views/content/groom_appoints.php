@@ -1,4 +1,4 @@
-<?= $this->extend('admin') ?>
+<?= $this->extend('index') ?>
 <?= $this->section('content') ?>
 <div class="container mt-5">
     <div class="row mb-4">
@@ -35,5 +35,8 @@
             <?= $pager->links('grooming', 'custom_pagination') ?>
         </div>
     </div>
+    <br>
+    <br>
+    <a href="/main" class="btn btn-primary">Back to main page</a>
 </div>
     <?= $this->endSection() ?>

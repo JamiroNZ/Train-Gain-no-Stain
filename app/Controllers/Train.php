@@ -65,7 +65,7 @@ class Train extends ResourceController
 
 
         $this->trainModel->insert($payload);
-        return redirect()->to('/main');
+        return redirect()->to('/thanks');
     }
 
     /**

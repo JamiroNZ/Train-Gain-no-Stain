@@ -13,8 +13,6 @@
 
   <br>
 
-  <?= $this->include('layouts/content/footer')?>
-
   <?= $this->include('layouts/content/scripts')?>
 
 </body>

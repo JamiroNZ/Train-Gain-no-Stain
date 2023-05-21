@@ -35,6 +35,10 @@ $routes->get('/main', 'Home::index');
 $routes->get('/groom', 'Home::groom');
 $routes->get('/train', 'Home::training');
 $routes->get('/feed', 'Home::feed');
+$routes->get('/thanks', 'Home::thankspage');
+$routes->get('/groomapps', 'Home::groomAppointments');
+$routes->get('/main/trainapps', 'Home::trainAppointments');
+
 
 $routes->group('', ['filter' => 'authMiddleware'], function($routes) {
     $routes->get('/admin/index', 'Home::admin');

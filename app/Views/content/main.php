@@ -15,6 +15,9 @@
       <h5 class="card-title">Pet Grooming</h5>
       <p class="card-text">Groom Your Pets!</p>
       <a href="/groom" class="btn btn-primary">Book Now</a>    
+      <br>
+      <br>
+      <a href="/groomapps" class="btn btn-primary">See grooming appointments</a>
     </div>
   </div>
   <div class="card">
@@ -23,6 +26,9 @@
       <h5 class="card-title">Pet Training</h5>
       <p class="card-text">Train Your Pets!</p>
       <a href="/train" class="btn btn-primary">Book Now</a>
+      <br>
+      <br>
+      <a href="/trainapps" class="btn btn-primary">See training appointments</a>
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<?= $this->extend('admin') ?>
+<?= $this->extend('index') ?>
 <?= $this->section('content') ?>
 <div class="container mt-5">
     <div class="row mb-4">
@@ -11,29 +11,32 @@
                         <th scope="col ">No</th>
                         <th scope="col ">Pet Name</th>
                         <th scope="col ">Pet Type</th>
-                        <th scope="col ">Grooming Type</th>
+                        <th scope="col ">Training Type</th>
+                        <th scope="col ">Training Duration</th>
                         <th scope="col ">Appointment Date</th>
-                        <th scope="col ">Appointment Time</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $no = 0; ?>
-                    <?php foreach ($grooming as $item): ?>
+                    <?php foreach ($training as $item): ?>
                     <tr>
                         <td><?= $no += 1; ?></td>
                         <td><?= $item['petName'] ?></td>
                         <td><?= $item['petType'] ?></td>
-                        <td><?= $item['groomingType'] ?></td>
+                        <td><?= $item['trainingType'] ?></td>
+                        <td><?= $item['trainingDuration'] ?></td>
                         <td><?= $item['appointmentDate'] ?></td>
-                        <td><?= $item['appointmentTime'] ?></td>
                     </tr>
                     <?php endforeach ?>
                 </tbody>
             </table>
         </div>
         <div class="col-12">
-            <?= $pager->links('grooming', 'custom_pagination') ?>
+            <?= $pager->links('training', 'custom_pagination') ?>
         </div>
     </div>
+    <br>
+    <br>
+    <a href="/main" class="btn btn-primary">Back to main page</a>
 </div>
-    <?= $this->endSection() ?>
+<?= $this->endSection() ?>
