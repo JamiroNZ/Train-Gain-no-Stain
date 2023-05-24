@@ -76,12 +76,12 @@ class Login extends ResourceController
                     ->first();
     
             if(!$user) {
-                session()->setFlashData("errors", "Email or password is invalid");
+                session()->setFlashData("errors", "Email salah!");
                 return redirect()->to(previous_url())->withInput();
             }
     
             if(md5($password) != $user['password']) {
-                session()->setFlashData("errors", "Email or password is invalid");
+                session()->setFlashData("errors", "Password salah!");
                 return redirect()->to(previous_url())->withInput();
             }
     
@@ -89,7 +89,7 @@ class Login extends ResourceController
             $this->session->set('name', $user['name']);
             $this->session->set('loggedIn', true);
     
-            return redirect()->to('admin/index');
+            return redirect()->to('/admin/index');
         }catch(\Exception $e){
             return redirect()->to(previous_url());
         }

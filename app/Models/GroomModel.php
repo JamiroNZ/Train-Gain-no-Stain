@@ -13,7 +13,7 @@ class GroomModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['petName','petType','groomingType','appointmentDate','appointmentTime'];
+    protected $allowedFields    = ['petName','petType','groomingType','appointmentDate','appointmentTime','status'];
 
     // Dates
     protected $useTimestamps = false;

@@ -14,6 +14,8 @@
                         <th scope="col ">Grooming Type</th>
                         <th scope="col ">Appointment Date</th>
                         <th scope="col ">Appointment Time</th>
+                        <th scope="col ">Status</th>
+                        <th scope="col ">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +28,13 @@
                         <td><?= $item['groomingType'] ?></td>
                         <td><?= $item['appointmentDate'] ?></td>
                         <td><?= $item['appointmentTime'] ?></td>
+                        <td><?= $item['status']?></td>
+                        <td>
+                            <form action="/groom/<?= $item['id']?>" method="post">
+                                <input type="hidden" name="_method" value="delete">
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to cancel?')">Cancel</button>
+                            </form>
+                        </td>
                     </tr>
                     <?php endforeach ?>
                 </tbody>

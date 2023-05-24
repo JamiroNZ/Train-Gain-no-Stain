@@ -13,7 +13,7 @@ class TrainModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['petName','petType','trainingType','trainingDuration','appointmentDate'];
+    protected $allowedFields    = ['petName','petType','trainingType','trainingDuration','appointmentDate','status'];
 
     // Dates
     protected $useTimestamps = false;

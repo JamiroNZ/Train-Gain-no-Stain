@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Controllers\Groom;
+
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -36,20 +38,27 @@ $routes->get('/groom', 'Home::groom');
 $routes->get('/train', 'Home::training');
 $routes->get('/feed', 'Home::feed');
 $routes->get('/thanks', 'Home::thankspage');
-$routes->get('/groomapps', 'Home::groomAppointments');
-$routes->get('/main/trainapps', 'Home::trainAppointments');
+$routes->get('/groomapps', 'Groom::groomAppointments');
+$routes->get('/trainapps', 'Train::trainAppointments');
 
 
 $routes->group('', ['filter' => 'authMiddleware'], function($routes) {
     $routes->get('/admin/index', 'Home::admin');
-    $routes->get('/admin/GroomTable', 'Home::groomTable');
-    $routes->get('/admin/TrainTable', 'Home::trainTable');
+    $routes->get('/admin/GroomTable', 'Groom::groomTable');
+    $routes->get('/admin/TrainTable', 'Train::trainTable');
+    $routes->put('groom/(:segment)',      'Groom::update/$1');
+    $routes->post('groom/(:segment)',    'Groom::update/$1');
+    $routes->put('train/(:segment)',      'Train::update/$1');
+    $routes->post('train/(:segment)',    'Train::update/$1');
 
 });
 $routes->get('/groom','Groom::new');
 $routes->post('groom','Groom::create');
 $routes->get('/train','Train::new');
 $routes->post('train','Train::create');
+$routes->delete('groom/(:segment)', 'Groom::delete/$1');
+$routes->delete('train/(:segment)', 'Train::delete/$1');
+
 
 $routes->resource('logout');
 $routes->resource('register');

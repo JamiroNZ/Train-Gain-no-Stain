@@ -16,9 +16,27 @@ class Groom extends ResourceController
      *
      * @return mixed
      */
-    public function index()
+    public function groomTable()
     {
-        //
+        $groomimg = $this->groomModel->paginate(5, 'grooming');
+
+        $payload = [
+            "grooming" => $groomimg,
+            "pager" => $this->groomModel->pager
+        ];
+
+        echo view('admin/GroomTable', $payload);
+    }
+    public function groomAppointments()
+    {
+        $groomimg = $this->groomModel->paginate(5, 'grooming');
+
+        $payload = [
+            "grooming" => $groomimg,
+            "pager" => $this->groomModel->pager
+        ];
+
+        echo view('content/groom_appoints', $payload);
     }
 
     /**
@@ -55,6 +73,7 @@ class Groom extends ResourceController
             "groomingType" => $this->request->getPost('groomingType'),
             "appointmentDate" => $this->request->getPost('appointmentDate'),
             "appointmentTime" => $this->request->getPost('appointmentTime'),
+            "status" => "Process",
         ];
 
 
@@ -69,7 +88,7 @@ class Groom extends ResourceController
      */
     public function edit($id = null)
     {
-        //
+        //   
     }
 
     /**
@@ -79,7 +98,17 @@ class Groom extends ResourceController
      */
     public function update($id = null)
     {
-        //
+        $grooming = $this->groomModel->find($id);
+        
+        if (!$grooming) {
+            throw new \Exception("Data not found!");   
+        }
+
+        $payload = [
+            "status" => $this->request->getPost('status'),
+        ];
+        $this->groomModel->update($id, $payload);
+        return redirect()->to('/admin/GroomTable');
     }
 
     /**
@@ -89,6 +118,7 @@ class Groom extends ResourceController
      */
     public function delete($id = null)
     {
-        //
+        $this->groomModel->delete($id);
+        return redirect()->to('/groomapps');
     }
 }

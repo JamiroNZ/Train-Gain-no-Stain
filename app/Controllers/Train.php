@@ -16,15 +16,28 @@ class Train extends ResourceController
      *
      * @return mixed
      */
-    public function index()
+    public function trainTable()
     {
-        $training = $this->trainModel->findAll();
+        $training = $this->trainModel->paginate(5, 'training');
 
         $payload = [
-            "training" => $training
+            "training" => $training,
+            "pager" => $this->trainModel->pager
         ];
 
         echo view('admin/TrainTable', $payload);
+    }
+
+    public function trainAppointments()
+    {
+        $training = $this->trainModel->paginate(5, 'training');
+
+        $payload = [
+            "training" => $training,
+            "pager" => $this->trainModel->pager
+        ];
+
+        echo view('content/train_appoints', $payload);
     }
 
     /**
@@ -61,6 +74,7 @@ class Train extends ResourceController
             "trainingType" => $this->request->getPost('trainingType'),
             "trainingDuration" => $this->request->getPost('trainingDuration'),
             "appointmentDate" => $this->request->getPost('appointmentDate'),
+            "status" => "Process",
         ];
 
 
@@ -85,7 +99,17 @@ class Train extends ResourceController
      */
     public function update($id = null)
     {
-        //
+        $training = $this->trainModel->find($id);
+        
+        if (!$training) {
+            throw new \Exception("Data not found!");   
+        }
+
+        $payload = [
+            "status" => $this->request->getPost('status'),
+        ];
+        $this->trainModel->update($id, $payload);
+        return redirect()->to('/admin/TrainTable');
     }
 
     /**
@@ -95,6 +119,7 @@ class Train extends ResourceController
      */
     public function delete($id = null)
     {
-        //
+        $this->trainModel->delete($id);
+        return redirect()->to('/trainapps');
     }
 }
